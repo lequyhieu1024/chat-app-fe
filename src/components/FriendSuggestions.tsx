@@ -151,7 +151,7 @@ const FriendSuggestions: React.FC = () => {
                     </div>
 
                     <div className="mt-2 p-4 bg-white rounded-md">
-                        <p>Giới thiệu bản thân, bài viết, hình ảnh, v.v.</p>
+                        <p>Giới thiệu bản thân, bài viết, hình ảnh, v.v.v</p>
                     </div>
                 </div>
             </div>
