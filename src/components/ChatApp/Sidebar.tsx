@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Input, Button, Avatar, List, Typography, Badge, Modal, Form, Upload, Drawer} from 'antd';
-import {SearchOutlined, LogoutOutlined, MoreOutlined, UploadOutlined, UserAddOutlined} from '@ant-design/icons';
+import {SearchOutlined, LogoutOutlined, FormOutlined, UploadOutlined, UserAddOutlined, UserSwitchOutlined } from '@ant-design/icons';
 import '../../../public/ChatApp.css';
 import Sider from "antd/es/layout/Sider";
 import type {IConversation} from "../../interfaces/conversation.ts";
@@ -29,6 +29,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedConversation, setSelectedConv
     const [form] = Form.useForm();
 
     const [open, setOpen] = useState(false);
+
+    const [isDrawerAcceptOpen, setIsDrawerAcceptOpen] = useState(false)
 
     const filterConversation = async (kw?: string) => {
         try {
@@ -102,10 +104,17 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedConversation, setSelectedConv
                         </Button>
                         <Button
                             type={'text'}
+                            onClick={() =>{setIsDrawerAcceptOpen(true)}}
+                            icon={<UserSwitchOutlined style={{ fontSize: '24px' }}/>}
+                            title={'Lời mời kết bạn'}
+                            style={{ color: '#fff' }}>
+                        </Button>
+                        <Button
+                            type={'text'}
                             onClick={() => {
                                 setIsOpenModal(true)
                             }}
-                            icon={<MoreOutlined style={{ fontSize: '24px' }}/>}
+                            icon={<FormOutlined style={{ fontSize: '24px' }}/>}
                             title={'Cập nhật thông tin'}
                             style={{ color: '#fff' }}>
                         </Button>
@@ -215,7 +224,18 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedConversation, setSelectedConv
                 key={'right'}
                 size="large"
             >
-                <FriendSuggestions/>
+                <FriendSuggestions type={`friend`}/>
+            </Drawer>
+            <Drawer
+                title="Lời mời kết bạn"
+                placement={'right'}
+                closable={false}
+                onClose={() =>setIsDrawerAcceptOpen(false)}
+                open={isDrawerAcceptOpen}
+                key={'right'}
+                size="large"
+            >
+                <FriendSuggestions type={'friendRequest'}/>
             </Drawer>
         </>
     );
