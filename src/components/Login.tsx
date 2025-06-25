@@ -11,6 +11,8 @@ export const Login: React.FC = () => {
         try {
             const res = await API.post('/auth/login', values);
             if (res.data.success) {
+                localStorage.setItem('avatar', res.data.data.avatar);
+                localStorage.setItem('name', res.data.data.name);
                 navigate('/chat');
                 toast.success("Đăng nhập thành công")
             } else {

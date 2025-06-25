@@ -15,6 +15,8 @@ const FriendSuggestions: React.FC<{type: string}> = ({ type }) => {
     const addFriendAudio = new Audio("/sounds/add_friend_audio.mp3");
     const acceptFriendAudio = new Audio("/sounds/quacquac.mp3");
 
+    const [currentUserId, setCurrentUserId] = useState<string | null>(null);
+
     const onFinish: FormProps['onFinish'] = (values) => {
         getFriends(values, type)
     };
@@ -23,8 +25,7 @@ const FriendSuggestions: React.FC<{type: string}> = ({ type }) => {
         try {
             const res = await API.get('/auth/me');
             const userId = res.data.user.id || null;
-            localStorage.setItem('current', userId);
-
+            setCurrentUserId(userId);
             if (userId) {
                 socket.connect();
                 socket.emit('register_user', userId);
@@ -90,7 +91,7 @@ const FriendSuggestions: React.FC<{type: string}> = ({ type }) => {
         try {
             const res = await API.post(`/friends/accept/${id}`);
             if (res.data.success) {
-                socket.emit('accept_friend', localStorage.getItem("current"))
+                socket.emit('accept_friend', currentUserId)
                 toast.success(res.data.message || "Đã chấp nhận lời mời kết bạn !")
             } else {
                 toast.error(res.data.errors || 'Có lỗi sảy ra, vui lòng thử lại !')
@@ -114,6 +115,7 @@ const FriendSuggestions: React.FC<{type: string}> = ({ type }) => {
 
         socket.on('has_been_accept_friend_request', () => {
             getFriends('', 'friendRequest');
+
             acceptFriendAudio.play();
         });
 

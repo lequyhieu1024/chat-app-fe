@@ -94,37 +94,56 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedConversation, setSelectedConv
         <>
             <Sider width={350} className="chat-sidebar relative">
                 <div className="sidebar-header">
-                    <div className={`flex gap-3`}>
-                        <Button
-                            type={'text'}
-                            onClick={() =>{setOpen(true)}}
-                            icon={<UserAddOutlined style={{ fontSize: '24px' }}/>}
-                            title={'Thêm bạn bè'}
-                            style={{ color: '#fff' }}>
-                        </Button>
-                        <Button
-                            type={'text'}
-                            onClick={() =>{setIsDrawerAcceptOpen(true)}}
-                            icon={<UserSwitchOutlined style={{ fontSize: '24px' }}/>}
-                            title={'Lời mời kết bạn'}
-                            style={{ color: '#fff' }}>
-                        </Button>
-                        <Button
-                            type={'text'}
-                            onClick={() => {
-                                setIsOpenModal(true)
-                            }}
-                            icon={<FormOutlined style={{ fontSize: '24px' }}/>}
-                            title={'Cập nhật thông tin'}
-                            style={{ color: '#fff' }}>
-                        </Button>
-                        <Button type="text" icon={<LogoutOutlined style={{ fontSize: '24px' }}/>} title={`Đăng xuất`} style={{ color: '#fff' }} onClick={ async () => {
-                            const res = await axios.post('/auth/logout');
-                            if (res.data.success) {
-                                navigate('/login');
-                                toast.success('Đăng xuất thành công');
-                            }
-                        }} />
+                    <div className={`flex gap-10`}>
+                        <div
+                            className="border border-white rounded-xl p-2 flex items-center gap-2 bg-white/20 backdrop-blur-sm shadow-md">
+                            <img
+                                src={String(localStorage.getItem('avatar'))}
+                                className="w-14 h-14 rounded-full object-cover border border-white shadow"
+                                alt={String(localStorage.getItem('name'))}
+                            />
+                            <h2 className="text-white font-semibold text-lg">
+                                {String(localStorage.getItem('name'))}
+                            </h2>
+                        </div>
+                        <div>
+                            <div className={`flex gap-10`}>
+                                <Button
+                                    type={'text'}
+                                    onClick={() => {
+                                        setOpen(true)
+                                    }}
+                                    icon={<UserAddOutlined style={{fontSize: '32px'}}/>}
+                                    title={'Thêm bạn bè'}
+                                    style={{color: '#fff'}}>
+                                </Button>
+                                <Button
+                                    type={'text'}
+                                    onClick={() =>{setIsDrawerAcceptOpen(true)}}
+                                    icon={<UserSwitchOutlined style={{ fontSize: '32px' }}/>}
+                                    title={'Lời mời kết bạn'}
+                                    style={{ color: '#fff' }}>
+                                </Button>
+                            </div>
+                            <div className={`flex gap-10 mt-4`}>
+                                <Button
+                                    type={'text'}
+                                    onClick={() => {
+                                        setIsOpenModal(true)
+                                    }}
+                                    icon={<FormOutlined style={{ fontSize: '32px' }}/>}
+                                    title={'Cập nhật thông tin'}
+                                    style={{ color: '#fff' }}>
+                                </Button>
+                                <Button type="text" icon={<LogoutOutlined style={{ fontSize: '32px' }}/>} title={`Đăng xuất`} style={{ color: '#fff' }} onClick={ async () => {
+                                    const res = await axios.post('/auth/logout');
+                                    if (res.data.success) {
+                                        navigate('/login');
+                                        toast.success('Đăng xuất thành công');
+                                    }
+                                }} />
+                            </div>
+                        </div>
                     </div>
                 </div>
 
