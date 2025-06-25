@@ -4,7 +4,6 @@ import {HomePage} from "./pages/home.tsx";
 import ChatApp from "./pages/ChatApp.tsx";
 import {Login} from "./components/Login.tsx";
 import {Register} from "./components/Register.tsx";
-import FriendSuggestions from "./components/FriendSuggestions.tsx";
 import './index.css';
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
                     <Route index element={<Navigate to={'home'}/>}/>
                     <Route path={'home'} element={<HomePage/>}/>
                     <Route path={'chat'} element={<ChatApp/>}/>
-                    <Route path={'friend'} element={<FriendSuggestions/>}/>
 
                     <Route path={'login'} element={<Login/>}/>
                     <Route path={'register'} element={<Register/>}/>
